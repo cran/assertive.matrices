@@ -231,6 +231,7 @@ is_upper_triangular_matrix <- function(x, strictly = FALSE, tol = 100 * .Machine
 #' is_zero_matrix(x)
 #' x[2, 2] <- 101 * .Machine$double.eps
 #' is_zero_matrix(x)
+#' @importFrom assertive.base print_and_capture
 #' @export
 is_zero_matrix <- function(x, tol = 100 * .Machine$double.eps, 
   .xname = get_name_in_parent(x))
@@ -246,7 +247,7 @@ is_zero_matrix <- function(x, tol = 100 * .Machine$double.eps,
         gettextf(
           "%s contains non-zero elements:\n%s", 
           .xname, 
-          assertive.base:::print_and_capture(bad_data)
+          print_and_capture(bad_data)
         )
       )
     )
